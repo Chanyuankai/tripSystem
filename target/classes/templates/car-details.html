@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">添加会员</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    <div class="formtitle"><span>飞机票详情</span></div>
+    
+    <ul class="forminfo">
+   
+   <form th:action="@{/addcarOrder}" method="post">
+	    <li><input type="hidden" class="dfinput" th:value="${id!=null}?${car.id}"/></li>
+	  <li><label>用户名</label><input name="number" type="text" class="dfinput" th:value="${loginNumber}" /></li>
+	    <li><label>出发地</label><input name="departure" type="text" class="dfinput" th:value="${car.departure}"/></li>
+	    <li><label>到达地</label><input name="arrive" type="text" class="dfinput" th:value="${car.arrive}"/></li>
+	    <li><label>出发日期</label><input name="date" type="text" class="dfinput"  th:value="${car.date}"/></li>
+	    <li><label>预计出发时间</label><input name="dtime" type="text" class="dfinput"  th:value="${car.dtime}"/></li>
+	    <li><label>预计到达时间</label><input name="atime" type="text" class="dfinput" th:value="${car.atime}"/></li>
+	    <li><label>航空公司</label><input name="carnum" type="text" class="dfinput" th:value="${car.carnum}"/></li>
+	    <li><label>价格</label><input name="price" type="text" class="dfinput" th:value="${car.price}"/></li>
+   		 <button type="submit" class="btn" onclick="return confirm('确定要购买吗')">购买</button>	
+    </form> 
+    <span th:text="${msg}"></span>
+  
+ 
+   
+    
+    </ul> 
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.PlaneMapper">
+					
+					<select id="selectAll" resultType="Plane">
+						select * from plane						
+					</select>
+					
+					<select id="selectplaneSum" resultType="int">
+						select count(*) from plane
+					</select>					
+					
+					<delete id="del_user" parameterType="int">
+						delete from plane where id =#{id}
+					</delete>
+					
+					<select id="getPlaneById" parameterType="int" resultType="Plane">
+						select * from plane where id = #{id}
+					</select>
+					
+					<select id="getPlaneByplace" parameterType="String" resultType="Plane">
+						select * from plane where departure=#{departure} and arrive=#{arrive}
+					</select>	
+					
+					<select id="getPlaneBydate" parameterType="String" resultType="Plane">
+						select * from plane where date = #{date}
+					</select>
+					<select id="getPlaneBymanger" parameterType="String" resultType="Plane">
+						select * from plane where date = #{date} and departure = #{departure} and arrive = #{arrive}
+					</select>
+					
+					<insert id="addplane"  useGeneratedKeys="true" keyProperty="id"  parameterType="Plane">
+						insert into plane (id,departure,arrive,date,dtime,atime,airline,price) values (#{id},
+						#{departure},#{arrive},#{date},#{dtime},#{atime},#{airline},#{price});
+					</insert>
+					
+					<delete id="delplane" parameterType="int">
+						delete from plane where id =#{id}
+					</delete>							
+					<update id="update_plane" parameterType="Plane">
+						update plane set id= #{id} , departure= #{departure} ,arrive =
+						#{arrive},date =#{date},dtime=#{dtime},atime=#{atime},airline=#{airline},price=#{price} where id = #{id}
+					</update>							
+				</mapper>

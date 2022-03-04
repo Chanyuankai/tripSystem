@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="editor/kindeditor.js"></script>
+
+<script type="text/javascript">
+    KE.show({
+        id : 'content7',
+        cssPath : './index.css'
+    });
+  </script>
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+</script>
+</head>
+
+<body>
+
+	
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+  	<li><a href="#tab1" class="selected">机票订单</a></li> 
+  	<li><a href="#tab2" >火车票订单</a></li> 
+    <li><a href="#tab3" >汽车票订单</a></li>
+    <li><a href="#tab4" >景点订单</a></li>
+    
+  	</ul>
+    </div> 
+      	<div id="tab1" class="tabson">
+        <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th>编号</th>
+        <th>用户账号</th>
+        <th>出发地</th>
+        <th>到达地</th>
+        <th>出发日期</th>
+        <th>预计出发时间</th>
+        <th>预计到达时间</th>
+        <th>航空公司</th>
+        <th>价格</th>
+        </tr>
+        </thead>
+<tbody>
+    <tr th:each="planeorder:${listplane }">
+		    					
+		     <td   th:text="${planeorder.id }" ></td>
+		     <td   th:text="${planeorder.number}" ></td>
+		    <td   th:text="${planeorder.departure}" ></td>
+		     <td   th:text="${planeorder.arrive}" ></td>
+		    <td   th:text="${planeorder.date }" ></td>
+		     <td   th:text="${planeorder.dtime }" ></td>
+		    <td   th:text="${planeorder.atime }" ></td>
+		    <td   th:text="${planeorder.airline}" ></td>
+		    <td   th:text="${planeorder.price }" ></td>
+		  					       
+	    </tr>
+     </tbody>
+    </table>
+    <span th:text="${msgp}"></span>
+    </div> 
+    
+    <div id="tab2" class="tabson">
+        <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th>编号</th>
+        <th>用户账号</th>
+        <th>出发地</th>
+        <th>到达地</th>
+        <th>出发日期</th>
+        <th>预计出发时间</th>
+        <th>预计到达时间</th>
+        <th>列车号</th>
+        <th>价格</th>
+        </tr>
+        </thead>
+<tbody>
+    <tr th:each="trainorder:${listtrain }">
+		    					
+		     <td   th:text="${trainorder.id }" ></td>
+		     <td   th:text="${trainorder.number}" ></td>
+		    <td   th:text="${trainorder.departure}" ></td>
+		     <td   th:text="${trainorder.arrive}" ></td>
+		    <td   th:text="${trainorder.date }" ></td>
+		     <td   th:text="${trainorder.dtime }" ></td>
+		    <td   th:text="${trainorder.atime }" ></td>
+		    <td   th:text="${trainorder.trainnum}" ></td>
+		    <td   th:text="${trainorder.price }" ></td>
+		  					       
+	    </tr>
+     </tbody>
+    </table>
+    <span th:text="${msgt}"></span>
+    
+    </div>
+    
+    <div id="tab3" class="tabson">
+        <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th>编号</th>
+        <th>用户账号</th>
+        <th>出发地</th>
+        <th>到达地</th>
+        <th>出发日期</th>
+        <th>预计出发时间</th>
+        <th>预计到达时间</th>
+        <th>车牌号</th>
+        <th>价格</th>
+        </tr>
+        </thead>
+<tbody>
+    <tr th:each="carorder:${listcar }">
+		    					
+		     <td   th:text="${carorder.id }" ></td>
+		     <td   th:text="${carorder.number}" ></td>
+		    <td   th:text="${carorder.departure}" ></td>
+		     <td   th:text="${carorder.arrive}" ></td>
+		    <td   th:text="${carorder.date }" ></td>
+		     <td   th:text="${carorder.dtime }" ></td>
+		    <td   th:text="${carorder.atime }" ></td>
+		    <td   th:text="${carorder.carnum}" ></td>
+		    <td   th:text="${carorder.price }" ></td>
+		  					       
+	    </tr>
+     </tbody>
+    </table>
+    <span th:text="${msgc}"></span>
+    
+    </div>
+    <div id="tab4" class="tabson">
+        <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th>编号</th>
+        <th>用户账号</th>
+        <th>景点名字</th>
+        <th>儿童价格</th>
+        <th>成人价格</th>
+        <th>景点介绍</th>
+        <th>预定张数</th>
+        </tr>
+        </thead>
+<tbody>
+    <tr th:each="scenicorder:${listscenic }">
+		    					
+		     <td   th:text="${scenicorder.id }" ></td>
+		     <td   th:text="${scenicorder.number}" ></td>
+		    <td   th:text="${scenicorder.name}" ></td>
+		     <td   th:text="${scenicorder.childprice}" ></td>
+		    <td   th:text="${scenicorder.adultprice }" ></td>
+		     <td width="30%"   th:text="${scenicorder.introduce }" ></td>
+		    <td   th:text="${scenicorder.reservenum }" ></td>
+
+		  					       
+	    </tr>
+     </tbody>
+    </table>
+    <span th:text="${msgs}"></span>
+    
+    </div>
+    
+  	
+    
+
+    
+    
+ 
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.ScenicOrderMapper">
+				
+					<insert id="addScenicOrder" useGeneratedKeys="true" keyProperty="id"  parameterType="ScenicOrder">
+						insert into scenicorder (number,name,childprice,adultprice,introduce,reservenum) values (#{number},
+						#{name},#{childprice},#{adultprice},#{introduce},#{reservenum});
+					</insert>	
+			
+				</mapper>

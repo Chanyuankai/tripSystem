@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+$(function(){	
+	//导航切换
+	$(".menuson li").click(function(){
+		$(".menuson li.active").removeClass("active")
+		$(this).addClass("active");
+	});
+	
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('ul').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('ul').slideUp();
+		}else{
+			$(this).next('ul').slideDown();
+		}
+	});
+})	
+</script>
+
+
+</head>
+
+<body style="background:#f0f9fd;">
+	<div class="lefttop"><span></span>菜单选项</div>
+    
+    <dl class="leftmenu">
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico01.png" /></a></span>首页
+    </div>
+    	<ul class="menuson">
+        <li class="active"><cite></cite><a href="index.html" target="rightFrame">简介</a><i></i></li>
+        </ul>    
+    </dd>
+        
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico01.png" /></span>飞机订票
+    </div>
+    	<ul class="menuson">
+    	<li class="active"><cite></cite><a href="plane-all.html" target="rightFrame">全部航班</a><i></i></li>
+        <li ><cite></cite><a href="plane-searchdatesur.html" target="rightFrame">按日期查询</a><i></i></li>
+        <li><cite></cite><a href="plane-searchplacesur.html" target="rightFrame">按地点查询</a><i></i></li>
+        
+        </ul>    
+    </dd>
+        
+    
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>汽车订票
+    </div>
+    <ul class="menuson">
+    <li class="active"><cite></cite><a href="car-all.html" target="rightFrame">全部汽车票</a><i></i></li>
+        <li><cite></cite><a href="car-searchdatesur.html" target="rightFrame">按日期查询</a><i></i></li>
+        <li><cite></cite><a href="car-searchplacesur.html" target="rightFrame">按地点查询</a><i></i></li>
+        </ul>     
+    </dd> 
+    
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>火车订票
+    </div>
+    <ul class="menuson">
+    <li class="active"><cite></cite><a href="train-all.html" target="rightFrame">全部火车票</a><i></i></li>
+         <li><cite></cite><a href="train-searchdatesur.html" target="rightFrame">按日期查询</a><i></i></li>
+        <li><cite></cite><a href="train-searchplacesur.html" target="rightFrame">按地点查询</a><i></i></li>
+        </ul>     
+    </dd> 
+    
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>景点订票
+    </div>
+    <ul class="menuson">
+       <li class="active"><cite></cite><a href="scenic-all.html" target="rightFrame">全部景点</a><i></i></li>
+         <li><cite></cite><a href="scenic-searchsitesur.html" target="rightFrame">按照景点所在城市查询</a><i></i></li>
+        <li><cite></cite><a href="scenic-searchnamesur.html" target="rightFrame">按景点名字查询</a><i></i></li>
+        </ul>     
+    </dd>
+     <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>个人订单
+    </div>
+    <ul class="menuson">
+       <li class="active"><cite></cite><a th:href="@{/personaltrain/}+${loginNumber}" target="rightFrame">个人火车票订单</a><i></i></li>
+       <li class="active"><cite></cite><a th:href="@{/personalcar/}+${loginNumber}" target="rightFrame">个人汽车票订单</a><i></i></li>
+       <li class="active"><cite></cite><a th:href="@{/personalplane/}+${loginNumber}" target="rightFrame">个人飞机票订单</a><i></i></li>
+   
+        </ul>     
+    </dd>
+    
+    
+   
+    
+    
+    
+    </dl>
+    
+</body>
+</html>

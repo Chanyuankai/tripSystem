@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">用户管理</a></li>
+    <li><a href="#">用户列表</a></li>
+    </ul>
+    <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th>编号</th>
+        <th>用户名</th>
+        <th>账号</th>
+        <th>密码</th>
+        <th>注册时间</th>
+        <th>性别</th>
+        <th>选项</th>
+        <th></th>
+        </tr>
+        </thead>
+<tbody>
+    <tr th:each="user:${userlist }">
+		    					
+		    <td  th:text="${user.id }" ></td>
+		    <td  th:text="${user.name}" ></td>
+		    <td  th:text="${user.number}" ></td>
+		    <td  th:text="${user.password}" ></td>
+		    <td  th:text="${user.date}" ></td>
+		    <td  th:text="${user.gender}" ></td>
+		    <td><a th:href="@{/deleteuser/}+${user.id}" class="tablelink" onclick="return confirm('确定要删除吗')">删除</a></td> 
+      <td><a th:href="@{/modification/}+${user.id}" class="tablelink" onclick="return confirm('确定要修改吗')">修改</a> </td>
+	    </tr>
+     </tbody>
+    </table>	
+   <span th:text="${msg}"></span>
+		 </div>	
+
+    
+  
+</body>
+
+</html>

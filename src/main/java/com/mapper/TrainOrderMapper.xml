@@ -1,0 +1,13 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.TrainOrderMapper">
+				
+					<insert id="addTrainOrder"  useGeneratedKeys="true" keyProperty="id"  parameterType="TrainOrder">
+						insert into trainorder (number,departure,arrive,date,dtime,atime,trainnum,price) values (#{number},
+						#{departure},#{arrive},#{date},#{dtime},#{atime},#{trainnum},#{price});
+					</insert>
+                    <select id="getTrainOrderBynumber" parameterType="String" resultType="TrainOrder">
+						select * from trainorder where number = #{number}
+					</select>
+			
+				</mapper>

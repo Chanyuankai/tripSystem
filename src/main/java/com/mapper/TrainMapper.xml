@@ -1,0 +1,41 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.TrainMapper">
+					
+					<select id="selectAll" resultType="Train">
+						select * from train						
+					</select>
+					
+					<select id="selecttrainSum" resultType="int">
+						select count(*) from train
+					</select>					
+					
+					
+					<select id="getTrainById" parameterType="int" resultType="Train">
+						select * from train where id = #{id}
+					</select>
+					
+					<select id="getTrainByplace" parameterType="String" resultType="Train">
+						select * from train where departure=#{departure} and arrive=#{arrive}
+					</select>	
+					
+					<select id="getTrainBydate" parameterType="String" resultType="Train">
+						select * from train where date = #{date}
+					</select>	
+					<select id="getTrainBymanger" parameterType="String" resultType="Train">
+						select * from train where date = #{date} and departure=#{departure} and arrive=#{arrive}
+					</select>
+					<insert id="addtrain"  useGeneratedKeys="true" keyProperty="id"  parameterType="Train">
+						insert into train (id,departure,arrive,date,dtime,atime,trainnum,price) values (#{id},
+						#{departure},#{arrive},#{date},#{dtime},#{atime},#{trainnum},#{price});
+					</insert>
+					
+					<delete id="deltrain" parameterType="int">
+						delete from train where id =#{id}
+					</delete>	
+					
+					<update id="update_train" parameterType="Train">
+						update train set id= #{id} , departure= #{departure} ,arrive =
+						#{arrive},date =#{date},dtime=#{dtime},atime=#{atime},trainnum=#{trainnum},price=#{price} where id = #{id}
+					</update>							
+				</mapper>

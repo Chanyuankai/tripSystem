@@ -1,0 +1,13 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.PlaneOrderMapper">
+				
+					<insert id="addPlaneOrder"  useGeneratedKeys="true" keyProperty="id"  parameterType="PlaneOrder">
+						insert into planeorder (number,departure,arrive,date,dtime,atime,airline,price) values (#{number},
+						#{departure},#{arrive},#{date},#{dtime},#{atime},#{airline},#{price});
+					</insert>	
+                    <select id="getPlaneOrderBynumber" parameterType="String" resultType="PlaneOrder">
+						select * from planeorder where number = #{number}
+					</select>
+			
+				</mapper>

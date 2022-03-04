@@ -1,0 +1,32 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.ScenicMangerMapper">
+					
+					<select id="selectAll" resultType="Scenic">
+						select * from scenic						
+					</select>
+					
+					<select id="selectscenicSum" resultType="int">
+						select count(*) from scenic
+					</select>
+					<delete id="del_scenic" parameterType="int">
+						delete from scenic where id =#{id}
+					</delete>
+					<update id="update_scenic" parameterType="Scenic">
+						update scenic set id= #{id} , site= #{site} ,adultprice =
+						#{adultprice},childprice =#{childprice},introduce=#{introduce},name=#{name} where id = #{id}
+					</update>					
+					
+					
+					<select id="getScenicById" parameterType="int" resultType="Scenic">
+						select * from scenic where id = #{id}
+					</select>
+					<insert id="addscenic" parameterType="Scenic" keyProperty="id" useGeneratedKeys="true">
+						insert into scenic (site,adultprice,childprice,introduce,img,name) values (
+						#{site},#{adultprice},#{childprice},#{introduce},#{img},#{name});
+  					</insert>
+					
+				
+					
+						
+				</mapper>

@@ -1,0 +1,33 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.PlaneOrderMangerMapper">
+				
+				<select id="selectAllplaneorder" resultType="PlaneOrder">
+						select * from planeorder						
+				</select>
+				<select id="selectplaneorderSum" resultType="int">
+						select count(*) from planeorder
+				</select>
+				
+				<select id="selectAlltrainorder" resultType="TrainOrder">
+						select * from trainorder						
+				</select>
+		
+				<select id="selecttrainorderSum" resultType="int">
+						select count(*) from trainorder
+				</select>
+				
+				<select id="selectAllcarorder" resultType="CarOrder">
+						select * from carorder						
+				</select>
+				<select id="selectcarorderSum" resultType="int">
+						select count(*) from carorder
+				</select>
+				
+				<select id="selectAllscenicorder" resultType="ScenicOrder">
+						select * from scenicorder						
+				</select>
+				<select id="selectscenicorderSum" resultType="int">
+						select count(*) from scenicorder
+				</select>
+				</mapper>

@@ -1,0 +1,40 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.CarMapper">
+					
+					<select id="selectAll" resultType="Car">
+						select * from car						
+					</select>
+					
+					<select id="selectcarSum" resultType="int">
+						select count(*) from car
+					</select>					
+					
+					
+					<select id="getCarById" parameterType="int" resultType="Car">
+						select * from car where id = #{id}
+					</select>
+					
+					<select id="getCarByplace" parameterType="String" resultType="Car">
+						select * from car where departure=#{departure} and arrive=#{arrive}
+					</select>	
+					
+					<select id="getCarBydate" parameterType="String" resultType="Car">
+						select * from car where date = #{date}
+					</select>
+					<select id="getCarBymanger" parameterType="String" resultType="Car">
+						select * from car where date = #{date} and departure=#{departure} and arrive=#{arrive}
+					</select>
+					<insert id="addcar"  useGeneratedKeys="true" keyProperty="id"  parameterType="Car">
+						insert into car (id,departure,arrive,date,dtime,atime,carnum,price) values (#{id},
+						#{departure},#{arrive},#{date},#{dtime},#{atime},#{carnum},#{price});
+					</insert>
+					
+					<delete id="delcar" parameterType="int">
+						delete from car where id =#{id}
+					</delete>
+					<update id="update_car" parameterType="Car">
+						update car set id= #{id} , departure= #{departure} ,arrive =
+						#{arrive},date =#{date},dtime=#{dtime},atime=#{atime},carnum=#{carnum},price=#{price} where id = #{id}
+					</update>							
+				</mapper>
